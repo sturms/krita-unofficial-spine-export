@@ -1,3 +1,7 @@
+# Spine export
+# Forked from Unofficial Spine Export (https://github.com/chartinger/krita-unofficial-spine-export)
+# 
+
 import os
 import json
 import re
@@ -7,7 +11,7 @@ from PyQt5.QtWidgets import (QFileDialog, QMessageBox)
 from krita import (Krita, Extension)
 
 
-class UnofficialSpineExport(Extension):
+class SpineExport(Extension):
 
     def __init__(self, parent):
         super().__init__(parent)
@@ -17,12 +21,12 @@ class UnofficialSpineExport(Extension):
         self.bonePattern = re.compile("\(bone\)|\[bone\]", re.IGNORECASE)
         self.mergePattern = re.compile("\(merge\)|\[merge\]", re.IGNORECASE)
         self.slotPattern = re.compile("\(slot\)|\[slot\]", re.IGNORECASE)
-
+        self.skinPattern = re.compile("\(skin\)|\[skin\]", re.IGNORECASE)
     def setup(self):
         pass
 
     def createActions(self, window):
-        action = window.createAction("unofficialspineexportAction", "Export to Spine", "tools/scripts")
+        action = window.createAction("spineexportAction", "Export to Spine", "tools/scripts")
         action.triggered.connect(self.exportDocument)
 
     def exportDocument(self):
@@ -31,7 +35,7 @@ class UnofficialSpineExport(Extension):
         if document is not None:
             if not self.directory:
                 self.directory = os.path.dirname(document.fileName()) if document.fileName() else os.path.expanduser("~")
-            self.directory = QFileDialog.getExistingDirectory(None, "Select a folder", self.directory, QFileDialog.ShowDirsOnly)
+            self.directo1ry = QFileDialog.getExistingDirectory(None, "Select a folder to export Spine assets to", self.directory, QFileDialog.ShowDirsOnly)
 
             if not self.directory:
                 self._alert('Abort!')
@@ -54,7 +58,7 @@ class UnofficialSpineExport(Extension):
             Krita.instance().setBatchmode(False)
             with open('{0}/{1}'.format(self.directory, 'spine.json'), 'w') as outfile:
                 json.dump(self.json, outfile, indent=2)
-            self._alert("Export Successful")
+            self._alert("Spine export successful")
         else:
             self._alert("Please select a Document")
 
@@ -80,6 +84,7 @@ class UnofficialSpineExport(Extension):
                     newSlot = slot
                     newX = xOffset
                     newY = yOffset
+                    # Found a bone
                     if self.bonePattern.search(child.name()):
                         newBone = self.bonePattern.sub('', child.name()).strip()
                         rect = child.bounds()
@@ -93,6 +98,7 @@ class UnofficialSpineExport(Extension):
                         })
                         newX = xOffset + newX
                         newY = yOffset + newY
+                    # Found a slot
                     if self.slotPattern.search(child.name()):
                         newSlotName = self.slotPattern.sub('', child.name()).strip()
                         newSlot = {
@@ -102,6 +108,9 @@ class UnofficialSpineExport(Extension):
                         }
                         self.spineSlots.append(newSlot)
 
+                    ## HERE DAN
+                    if self.skinPattern.search(child.name())
+
                     self._export(child, directory, newBone, newX, newY, newSlot)
                     continue
 
@@ -110,6 +119,7 @@ class UnofficialSpineExport(Extension):
             child.save(layerFileName, 96, 96)
 
             newSlot = slot
+
             if not newSlot:
                 newSlot = {
                     'name': name,
@@ -135,5 +145,6 @@ class UnofficialSpineExport(Extension):
 
 
 # And add the extension to Krita's list of extensions:
-Krita.instance().addExtension(UnofficialSpineExport(Krita.instance()))
+Krita.instance().addExtension(SpineExport(Krita.instance()))
 
+# End of file
