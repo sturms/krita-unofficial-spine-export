@@ -7,6 +7,8 @@ import json
 import re
 
 from PyQt5.QtWidgets import (QFileDialog, QMessageBox)
+from PyQt4.QtCore import *
+from PyQt4.QtGui import *
 
 from krita import (Krita, Extension)
 
@@ -108,8 +110,9 @@ class SpineExport(Extension):
                         }
                         self.spineSlots.append(newSlot)
 
-                    ## HERE DAN
-                    if self.skinPattern.search(child.name())
+                    ## Found a skin
+                    if self.skinPattern.search(child.name()):
+                        newSkin = self.skinPattern.sub('', child.name()).strip()
 
                     self._export(child, directory, newBone, newX, newY, newSlot)
                     continue
