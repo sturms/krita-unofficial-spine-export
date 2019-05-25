@@ -26,11 +26,11 @@ class SpineExport(Extension):
     def setup(self):
         pass
 
-    def create_actions(self, window):
+    def createActions(self, window):
         action = window.createAction("spineexportAction", "Export to Spine", "tools/scripts")
-        action.triggered.connect(self.export_document)
+        action.triggered.connect(self.exportDocument)
 
-    def export_document(self):
+    def exportDocument(self):
         document = Krita.instance().activeDocument()
 
         if document is not None:

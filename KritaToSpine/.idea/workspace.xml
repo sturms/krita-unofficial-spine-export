@@ -20,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/KritaToSpine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
+            <state relative-caret-position="835">
+              <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
               <folding>
                 <element signature="e#119#128#0" expanded="true" />
               </folding>
@@ -135,21 +135,22 @@
       <workItem from="1558709305394" duration="768000" />
       <workItem from="1558715207794" duration="291000" />
       <workItem from="1558716857246" duration="6163000" />
+      <workItem from="1558794809620" duration="450000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7222000" />
+    <option name="totallyTimeSpent" value="7672000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="668" y="5" width="1944" height="1390" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13375796" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13481954" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32994062" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3293556" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.24184567" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -177,8 +178,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/KritaToSpine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
+        <state relative-caret-position="835">
+          <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
           <folding>
             <element signature="e#119#128#0" expanded="true" />
           </folding>
