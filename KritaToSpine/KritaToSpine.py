@@ -6,7 +6,8 @@ import os
 import json
 import re
 
-from PyQt5.QtWidgets import (QFileDialog, QMessageBox)
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import (QFormLayout, QListWidget, QAbstractItemView, QDialogButtonBox, QVBoxLayout, QFrame, QTabWidget, QPushButton, QAbstractScrollArea, QMessageBox)
 
 from krita import (Krita, Extension)
 
@@ -36,10 +37,12 @@ class SpineExport(Extension):
         if document is not None:
             if not self.directory:
                 self.directory = os.path.dirname(document.fileName()) if document.fileName() else os.path.expanduser("~")
-            self.directo1ry = QFileDialog.getExistingDirectory(None, "Select a folder to export Spine assets to", self.directory, QFileDialog.ShowDirsOnly)
+
+            self.directory = QFileDialog.getExistingDirectory(None, "Select a folder to export Spine assets to",
+                                                              self.directory, QFileDialog.ShowDirsOnly)
 
             if not self.directory:
-                self._alert('Abort!')
+                self._alert("Directory doesn't exist; canceling export")
                 return
 
             self.json = {
@@ -89,6 +92,7 @@ class SpineExport(Extension):
                     newSlot = slot
                     newX = xOffset
                     newY = yOffset
+
                     # Found a bone
                     if self.bonePattern.search(child.name()):
                         newBone = self.bonePattern.sub('', child.name()).strip()
@@ -117,7 +121,7 @@ class SpineExport(Extension):
                     ## Found a skin
                     if self.skinPattern.search(child.name()):
                         new_skin_name = self.skinPattern.sub('', child.name()).strip()
-                        new_skin = "" #"#'\t{ "name": ' + self.quote(new_skin_name) + ', "bone": '# + self.quote(slot.bone ? slot.bone.name : "root");
+                        new_skin = "" #  "#'\t{ "name": ' + self.quote(new_skin_name) + ', "bone": '# + self.quote(slot.bone ? slot.bone.name : "root");
                         self.spineDefaultSkins.append(new_skin)
 
                     self._export(child, directory, newBone, newX, newY, newSlot)
