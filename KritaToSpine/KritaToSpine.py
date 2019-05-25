@@ -1,16 +1,19 @@
 # Spine export
 # Forked from Unofficial Spine Export (https://github.com/chartinger/krita-unofficial-spine-export)
-# 
+# Based on the Esoteric Software Photoshop plugin, and the Spine Document Tools plugin
+
 
 import os
 import json
 import re
+
 
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (QFormLayout, QListWidget, QAbstractItemView, QDialogButtonBox, QVBoxLayout, QFrame, QTabWidget, QPushButton, QAbstractScrollArea, QMessageBox)
 
 from krita import (Krita, Extension)
 
+from . import uidocumenttools
 
 class SpineExport(Extension):
 
@@ -28,8 +31,15 @@ class SpineExport(Extension):
         pass
 
     def createActions(self, window):
-        action = window.createAction("spineexportAction", "Export to Spine", "tools/scripts")
-        action.triggered.connect(self.exportDocument)
+        action = window.createAction("spineexportAction",i18n("Spine Export"))
+        action.setToolTip(i18n("Plugin to export to Spine."))
+        action.triggered.connect(self.initialize)
+        #action = window.createAction("spineexportAction", "Export to Spine", "tools/scripts")
+        #action.triggered.connect(self.exportDocument)
+
+    def initialize(self):
+        self.uidocumenttools = uidocumenttools.UIDocumentTools()
+        self.uidocumenttools.initialize()
 
     def exportDocument(self):
         document = Krita.instance().activeDocument()
