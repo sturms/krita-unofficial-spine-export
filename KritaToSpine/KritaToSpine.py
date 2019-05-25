@@ -7,8 +7,6 @@ import json
 import re
 
 from PyQt5.QtWidgets import (QFileDialog, QMessageBox)
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
 
 from krita import (Krita, Extension)
 
@@ -24,14 +22,15 @@ class SpineExport(Extension):
         self.mergePattern = re.compile("\(merge\)|\[merge\]", re.IGNORECASE)
         self.slotPattern = re.compile("\(slot\)|\[slot\]", re.IGNORECASE)
         self.skinPattern = re.compile("\(skin\)|\[skin\]", re.IGNORECASE)
+
     def setup(self):
         pass
 
-    def createActions(self, window):
+    def create_actions(self, window):
         action = window.createAction("spineexportAction", "Export to Spine", "tools/scripts")
-        action.triggered.connect(self.exportDocument)
+        action.triggered.connect(self.export_document)
 
-    def exportDocument(self):
+    def export_document(self):
         document = Krita.instance().activeDocument()
 
         if document is not None:
@@ -52,7 +51,7 @@ class SpineExport(Extension):
             }
             self.spineBones = self.json['bones']
             self.spineSlots = self.json['slots']
-            self.spineDefaultSkin = self.json['skins']['default']
+            self.spineSkins = self.json['skins']['default']
 
             Krita.instance().setBatchmode(True)
             self.document = document
@@ -63,6 +62,10 @@ class SpineExport(Extension):
             self._alert("Spine export successful")
         else:
             self._alert("Please select a Document")
+
+    @staticmethod
+    def quote(value):
+        return '"' + value + '"'
 
     def _alert(self, message):
         self.msgBox = self.msgBox if self.msgBox else QMessageBox()
@@ -77,7 +80,7 @@ class SpineExport(Extension):
             if not child.visible():
                 continue
 
-            if '(ignore)' in child.name():
+            if '[ignore]' in child.name():
                 continue
 
             if child.childNodes():
@@ -100,6 +103,7 @@ class SpineExport(Extension):
                         })
                         newX = xOffset + newX
                         newY = yOffset + newY
+
                     # Found a slot
                     if self.slotPattern.search(child.name()):
                         newSlotName = self.slotPattern.sub('', child.name()).strip()
@@ -112,14 +116,16 @@ class SpineExport(Extension):
 
                     ## Found a skin
                     if self.skinPattern.search(child.name()):
-                        newSkin = self.skinPattern.sub('', child.name()).strip()
+                        new_skin_name = self.skinPattern.sub('', child.name()).strip()
+                        new_skin = "" #"#'\t{ "name": ' + self.quote(new_skin_name) + ', "bone": '# + self.quote(slot.bone ? slot.bone.name : "root");
+                        self.spineDefaultSkins.append(new_skin)
 
                     self._export(child, directory, newBone, newX, newY, newSlot)
                     continue
 
             name = self.mergePattern.sub('', child.name()).strip()
-            layerFileName = '{0}/{1}.{2}'.format(directory, name, self.fileFormat)
-            child.save(layerFileName, 96, 96)
+            layer_file_name = '{0}/{1}.{2}'.format(directory, name, self.fileFormat)
+            child.save(layer_file_name, 96, 96)
 
             newSlot = slot
 
@@ -136,9 +142,9 @@ class SpineExport(Extension):
 
             rect = child.bounds()
             slotName = newSlot['name']
-            if slotName not in self.spineDefaultSkin:
-                self.spineDefaultSkin[slotName] = {}
-            self.spineDefaultSkin[slotName][name] = {
+            if slotName not in self.spineSkins:
+                self.spineSkins[slotName] = {}
+            self.spineSkins[slotName][name] = {
                 'x': rect.left() + rect.width() / 2 - xOffset,
                 'y': (- rect.bottom() + rect.height() / 2) - yOffset,
                 'rotation': 0,
