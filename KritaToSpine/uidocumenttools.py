@@ -14,9 +14,11 @@
 
 from . import documenttoolsdialog
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import (QFormLayout, QListWidget, QAbstractItemView,
+from PyQt5.QtWidgets import (QFormLayout, QListWidget, QAbstractItemView, QLineEdit, QFileDialog,
                              QDialogButtonBox, QVBoxLayout, QFrame, QTabWidget,
-                             QPushButton, QAbstractScrollArea, QMessageBox)
+                             QPushButton, QAbstractScrollArea, QMessageBox, QHBoxLayout)
+import os
+import errno
 import krita
 import importlib
 
@@ -33,6 +35,10 @@ class UIDocumentTools(object):
         self.tabTools = QTabWidget()
         self.buttonBox = QDialogButtonBox(
             QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        # Output directory
+        self.directorySelectorLayout = QHBoxLayout()
+        self.directoryTextField = QLineEdit()
+        self.directoryDialogButton = QPushButton(i18n("..."))
 
         self.kritaInstance = krita.Krita.instance()
         self.documentsList = []
@@ -40,11 +46,11 @@ class UIDocumentTools(object):
         self.refreshButton.clicked.connect(self.refreshButtonClicked)
         self.buttonBox.accepted.connect(self.confirmButton)
         self.buttonBox.rejected.connect(self.mainDialog.close)
+        self.directoryDialogButton.clicked.connect(self._selectDir)
 
         self.mainDialog.setWindowModality(Qt.NonModal)
         self.widgetDocuments.setSelectionMode(QAbstractItemView.MultiSelection)
-        self.widgetDocuments.setSizeAdjustPolicy(
-            QAbstractScrollArea.AdjustToContents)
+        self.widgetDocuments.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
 
     def initialize(self):
         self.loadDocuments()
@@ -52,8 +58,11 @@ class UIDocumentTools(object):
 
         self.documentLayout.addWidget(self.widgetDocuments)
         self.documentLayout.addWidget(self.refreshButton)
+        self.directorySelectorLayout.addWidget( self.directoryTextField)
+        self.directorySelectorLayout.addWidget(self.directoryDialogButton)
 
         self.formLayout.addRow(i18n("Documents:"), self.documentLayout)
+        self.formLayout.addRow(i18n("Output Directory:"), self.directorySelectorLayout)
         self.formLayout.addRow(self.tabTools)
 
         self.line = QFrame()
@@ -71,7 +80,7 @@ class UIDocumentTools(object):
         self.mainDialog.activateWindow()
 
     def loadTools(self):
-        modulePath = 'documenttools.tools'
+        modulePath = 'KritaToSpine.tools'
         toolsModule = importlib.import_module(modulePath)
         modules = []
 
@@ -109,6 +118,7 @@ class UIDocumentTools(object):
             for path in selectedPaths if path == document.fileName()]
 
         self.msgBox = QMessageBox(self.mainDialog)
+        #TODO have this loop through the tabs and apply all of the items
         if selectedDocuments:
             widget = self.tabTools.currentWidget()
             widget.adjust(selectedDocuments)
@@ -117,3 +127,7 @@ class UIDocumentTools(object):
         else:
             self.msgBox.setText(i18n("Select at least one document."))
         self.msgBox.exec_()
+
+    def _selectDir(self):
+        directory = QFileDialog.getExistingDirectory(self.mainDialog, i18n("Select a Folder"), os.path.expanduser("~"), QFileDialog.ShowDirsOnly)
+        self.directoryTextField.setText(directory)
