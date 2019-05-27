@@ -60,3 +60,9 @@ class ScaleTool(QWidget):
                             self.xResSpinBox.value(),
                             self.yResSpinBox.value(),
                             self.strategyComboBox.currentText())
+
+    def updateFields(self, document):
+        self.xResSpinBox.setValue(document.xRes())
+        self.yResSpinBox.setValue(document.yRes())
+        self.widthSpinBox.setValue(document.width())
+        self.heightSpinBox.setValue(document.height())

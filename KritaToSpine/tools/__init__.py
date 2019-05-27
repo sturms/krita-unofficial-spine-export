@@ -1,3 +1,3 @@
-ToolClasses = ['canvassizetool.canvassizetool.CanvasSizeTool',
-               'scaletool.scaletool.ScaleTool',
+ToolClasses = ['scaletool.scaletool.ScaleTool',
+               'canvassizetool.canvassizetool.CanvasSizeTool',
                'rotatetool.rotatetool.RotateTool']

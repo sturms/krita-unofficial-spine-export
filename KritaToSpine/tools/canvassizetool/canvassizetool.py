@@ -52,3 +52,10 @@ class CanvasSizeTool(QWidget):
                              self.yOffsetSpinBox.value(),
                              self.widthSpinBox.value(),
                              self.heightSpinBox.value())
+
+    def updateFields(self, document):
+        self.xOffsetSpinBox.setValue(document.xOffset())
+        self.yOffsetSpinBox.setValue(document.yOffset())
+        self.widthSpinBox.setValue(document.width())
+        self.heightSpinBox.setValue(document.height())
+

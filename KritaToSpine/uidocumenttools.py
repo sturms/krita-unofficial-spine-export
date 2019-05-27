@@ -140,13 +140,17 @@ class UIDocumentTools(object):
             initialDir = os.path.dirname(doc[0].fileName())
         else:
             initialDir = os.path.expanduser("~")
-            
+
         directory = QFileDialog.getExistingDirectory(self.mainDialog, i18n("Select a Folder"), initialDir, QFileDialog.ShowDirsOnly)
         self.directoryTextField.setText(directory)
 
     def _documentSelected(self):
         doc = self._selectedDocuments()
         self.directoryTextField.setText(os.path.dirname(doc[0].fileName()))
+        # TODO have this loop through the tabs and set them up
+        widget = self.tabTools.currentWidget()
+        # Tell the widget to update itself to the current settings
+        widget.updateFields(doc[0])
 
 
     def _selectedDocuments(self):
