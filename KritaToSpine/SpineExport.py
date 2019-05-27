@@ -20,6 +20,7 @@ class SpineExport(object):
     def __init__(self, parent=None):
         self.msgBox = None
         self.fileFormat = 'png'
+
         self.bonePattern = re.compile("\(bone\)|\[bone\]", re.IGNORECASE)
         self.mergePattern = re.compile("\(merge\)|\[merge\]", re.IGNORECASE)
         self.slotPattern = re.compile("\(slot\)|\[slot\]", re.IGNORECASE)
@@ -38,9 +39,18 @@ class SpineExport(object):
             self.spineSlots = self.json['slots']
             self.spineSkins = self.json['skins']['default']
 
+            if document.guidesVisible():
+                xOrigin = document.horizontalGuides()[0]
+                yOrigin = document.verticalGuides()[0]
+                self._alert("x origin: " + str(xOrigin))
+                self._alert("y origin: " + str(yOrigin))
+            else:
+                xOrigin = 0
+                yOrigin = 0
+
             Krita.instance().setBatchmode(True)
             self.document = document
-            self._export(document.rootNode(), directory)
+            self._export(document.rootNode(), directory)#, "root", xOrigin, yOrigin)
             Krita.instance().setBatchmode(False)
             with open('{0}/{1}'.format(directory, 'spine.json'), 'w') as outfile:
                 json.dump(self.json, outfile, indent=2)
@@ -136,3 +146,6 @@ class SpineExport(object):
                 'width': rect.width(),
                 'height': rect.height(),
             }
+
+
+

@@ -77,7 +77,7 @@ class UIDocumentTools(object):
         self.mainLayout.addWidget(self.buttonBox)
 
         self.mainDialog.resize(500, 300)
-        self.mainDialog.setWindowTitle(i18n("Document Tools"))
+        self.mainDialog.setWindowTitle(i18n("Export to Spine"))
         self.mainDialog.setSizeGripEnabled(True)
         self.mainDialog.show()
         self.mainDialog.activateWindow()
