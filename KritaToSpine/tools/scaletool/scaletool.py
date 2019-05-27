@@ -54,10 +54,9 @@ class ScaleTool(QWidget):
         self.layout.addRow(i18n("Resolution:"), self.resolutionLayout)
         self.layout.addRow(i18n("Filter:"), self.strategyComboBox)
 
-    def adjust(self, documents):
-        for document in documents:
-            document.scaleImage(self.widthSpinBox.value(),
-                                self.heightSpinBox.value(),
-                                self.xResSpinBox.value(),
-                                self.yResSpinBox.value(),
-                                self.strategyComboBox.currentText())
+    def adjust(self, document):
+        document.scaleImage(self.widthSpinBox.value(),
+                            self.heightSpinBox.value(),
+                            self.xResSpinBox.value(),
+                            self.yResSpinBox.value(),
+                            self.strategyComboBox.currentText())

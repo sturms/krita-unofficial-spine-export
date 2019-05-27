@@ -37,6 +37,5 @@ class RotateTool(QWidget):
 
         self.layout.addRow(i18n("Degrees:"), self.degreesSpinBox)
 
-    def adjust(self, documents):
-        for document in documents:
-            document.rotateImage(math.radians(self.degreesSpinBox.value()))
+    def adjust(self, document):
+        document.rotateImage(math.radians(self.degreesSpinBox.value()))

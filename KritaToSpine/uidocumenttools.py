@@ -13,12 +13,13 @@
 # https://creativecommons.org/publicdomain/zero/1.0/legalcode
 
 from . import documenttoolsdialog
+from . import SpineExport
+
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (QFormLayout, QListWidget, QAbstractItemView, QLineEdit, QFileDialog,
                              QDialogButtonBox, QVBoxLayout, QFrame, QTabWidget,
                              QPushButton, QAbstractScrollArea, QMessageBox, QHBoxLayout)
 import os
-import errno
 import krita
 import importlib
 
@@ -27,6 +28,7 @@ class UIDocumentTools(object):
 
     def __init__(self):
         self.mainDialog = documenttoolsdialog.DocumentToolsDialog()
+        self.spineExport = SpineExport.SpineExport()
         self.mainLayout = QVBoxLayout(self.mainDialog)
         self.formLayout = QFormLayout()
         self.documentLayout = QVBoxLayout()
@@ -118,12 +120,19 @@ class UIDocumentTools(object):
             for path in selectedPaths if path == document.fileName()]
 
         self.msgBox = QMessageBox(self.mainDialog)
-        #TODO have this loop through the tabs and apply all of the items
+
         if selectedDocuments:
+            # TODO have this loop through the tabs and apply all of the items
             widget = self.tabTools.currentWidget()
-            widget.adjust(selectedDocuments)
-            self.msgBox.setText(
-                i18n("The selected documents has been modified."))
+            for document in selectedDocuments:
+                cloneDoc = document.clone()
+                widget.adjust(cloneDoc)
+                # Save the json from the clone
+                self.spineExport.exportDocument(cloneDoc)
+                # Clone no longer needed
+                cloneDoc.close()
+
+            self.msgBox.setText(i18n("The selected documents have been modified."))
         else:
             self.msgBox.setText(i18n("Select at least one document."))
         self.msgBox.exec_()

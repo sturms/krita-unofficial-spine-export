@@ -47,9 +47,8 @@ class CanvasSizeTool(QWidget):
         self.layout.addRow(i18n("Height:"), self.heightSpinBox)
         self.layout.addRow(i18n("Offset:"), self.offsetLayout)
 
-    def adjust(self, documents):
-        for document in documents:
-            document.resizeImage(self.xOffsetSpinBox.value(),
-                                 self.yOffsetSpinBox.value(),
-                                 self.widthSpinBox.value(),
-                                 self.heightSpinBox.value())
+    def adjust(self, document):
+        document.resizeImage(self.xOffsetSpinBox.value(),
+                             self.yOffsetSpinBox.value(),
+                             self.widthSpinBox.value(),
+                             self.heightSpinBox.value())
