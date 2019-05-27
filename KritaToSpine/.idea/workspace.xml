@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33c81e87-5ba2-4164-bda1-1c03aed90908" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SpineExport.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/KritaToSpine.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/KritaToSpine.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KritaToSpine.py" beforeDir="false" afterPath="$PROJECT_DIR$/KritaToSpine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpineExport.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpineExport.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doctools/Manual.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctools/Manual.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doctools/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/doctools/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doctools/documenttools.py" beforeDir="false" afterPath="$PROJECT_DIR$/doctools/documenttools.py" afterDir="false" />
@@ -34,7 +34,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/KritaToSpine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
+            <state relative-caret-position="15">
               <caret line="4" column="70" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
               <folding>
                 <element signature="e#205#241#0" expanded="true" />
@@ -46,8 +46,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/uidocumenttools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="564">
-              <caret line="131" column="40" lean-forward="true" selection-start-line="131" selection-start-column="40" selection-end-line="131" selection-end-column="40" />
+            <state relative-caret-position="593">
+              <caret line="142" column="12" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
               <folding>
                 <element signature="e#543#576#0" expanded="true" />
               </folding>
@@ -67,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SpineExport.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+            <state relative-caret-position="164">
+              <caret line="33" column="41" lean-forward="true" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
               <folding>
                 <element signature="e#1#10#0" expanded="true" />
               </folding>
@@ -118,6 +118,8 @@
       <find>toolclasses</find>
       <find>uidocument</find>
       <find>has</find>
+      <find>directory</find>
+      <find>_selectDir</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -136,10 +138,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="923" />
-    <option name="y" value="44" />
+    <option name="x" value="1323" />
+    <option name="y" value="-4" />
     <option name="width" value="1773" />
-    <option name="height" value="1390" />
+    <option name="height" value="1388" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -187,7 +189,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -246,15 +248,15 @@
       <workItem from="1558794809620" duration="1358000" />
       <workItem from="1558796490666" duration="2582000" />
       <workItem from="1558800492039" duration="1496000" />
-      <workItem from="1558805376057" duration="16928000" />
+      <workItem from="1558805376057" duration="23041000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29586000" />
+    <option name="totallyTimeSpent" value="35699000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="923" y="44" width="1773" height="1390" extended-state="0" />
+    <frame x="1323" y="-4" width="1773" height="1388" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15236427" />
@@ -338,16 +340,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/KritaToSpine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="4" column="70" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
-          <folding>
-            <element signature="e#205#241#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/documenttoolsdialog.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -355,20 +347,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/KritaToSpine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="4" column="70" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
+          <folding>
+            <element signature="e#205#241#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SpineExport.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+        <state relative-caret-position="164">
+          <caret line="33" column="41" lean-forward="true" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
           <folding>
             <element signature="e#1#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/python_stubs/-2066014772/PyQt5/QtCore/QObject.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="1" column="14" selection-start-line="1" selection-end-line="1" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/python_stubs/-2066014772/PyQt5/QtWidgets/QAbstractItemView.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/python_stubs/-2066014772/PyQt5/QtWidgets/QListWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="937">
+          <caret line="375" column="4" selection-start-line="375" selection-start-column="4" selection-end-line="375" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/uidocumenttools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="131" column="40" lean-forward="true" selection-start-line="131" selection-start-column="40" selection-end-line="131" selection-end-column="40" />
+        <state relative-caret-position="593">
+          <caret line="142" column="12" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
           <folding>
             <element signature="e#543#576#0" expanded="true" />
           </folding>

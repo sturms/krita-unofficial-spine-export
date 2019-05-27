@@ -15,7 +15,7 @@
 from . import documenttoolsdialog
 from . import SpineExport
 
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, pyqtSignal, QObject
 from PyQt5.QtWidgets import (QFormLayout, QListWidget, QAbstractItemView, QLineEdit, QFileDialog,
                              QDialogButtonBox, QVBoxLayout, QFrame, QTabWidget,
                              QPushButton, QAbstractScrollArea, QMessageBox, QHBoxLayout)
@@ -49,9 +49,10 @@ class UIDocumentTools(object):
         self.buttonBox.accepted.connect(self.confirmButton)
         self.buttonBox.rejected.connect(self.mainDialog.close)
         self.directoryDialogButton.clicked.connect(self._selectDir)
+        self.widgetDocuments.clicked.connect(self._documentSelected)
 
         self.mainDialog.setWindowModality(Qt.NonModal)
-        self.widgetDocuments.setSelectionMode(QAbstractItemView.MultiSelection)
+        self.widgetDocuments.setSelectionMode(QAbstractItemView.SingleSelection)
         self.widgetDocuments.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
 
     def initialize(self):
@@ -113,11 +114,7 @@ class UIDocumentTools(object):
         self.loadDocuments()
 
     def confirmButton(self):
-        selectedPaths = [
-            item.text() for item in self.widgetDocuments.selectedItems()]
-        selectedDocuments = [
-            document for document in self.documentsList
-            for path in selectedPaths if path == document.fileName()]
+        selectedDocuments = self._selectedDocuments()
 
         self.msgBox = QMessageBox(self.mainDialog)
 
@@ -128,15 +125,35 @@ class UIDocumentTools(object):
                 cloneDoc = document.clone()
                 widget.adjust(cloneDoc)
                 # Save the json from the clone
-                self.spineExport.exportDocument(cloneDoc)
+                self.spineExport.exportDocument(cloneDoc, self.directoryTextField.text())
                 # Clone no longer needed
                 cloneDoc.close()
 
-            self.msgBox.setText(i18n("The selected documents have been modified."))
+            self.msgBox.setText(i18n("The selected document has been exported."))
         else:
             self.msgBox.setText(i18n("Select at least one document."))
         self.msgBox.exec_()
 
     def _selectDir(self):
-        directory = QFileDialog.getExistingDirectory(self.mainDialog, i18n("Select a Folder"), os.path.expanduser("~"), QFileDialog.ShowDirsOnly)
+        doc = self._selectedDocuments()
+        if doc[0]:
+            initialDir = os.path.dirname(doc[0].fileName())
+        else:
+            initialDir = os.path.expanduser("~")
+            
+        directory = QFileDialog.getExistingDirectory(self.mainDialog, i18n("Select a Folder"), initialDir, QFileDialog.ShowDirsOnly)
         self.directoryTextField.setText(directory)
+
+    def _documentSelected(self):
+        doc = self._selectedDocuments()
+        self.directoryTextField.setText(os.path.dirname(doc[0].fileName()))
+
+
+    def _selectedDocuments(self):
+        selectedPaths = [
+            item.text() for item in self.widgetDocuments.selectedItems()]
+        selectedDocuments = [
+            document for document in self.documentsList
+            for path in selectedPaths if path == document.fileName()]
+        return selectedDocuments
+

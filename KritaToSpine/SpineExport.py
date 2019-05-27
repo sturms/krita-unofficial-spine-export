@@ -18,7 +18,6 @@ from PyQt5.QtWidgets import (QFormLayout, QListWidget, QAbstractItemView,
 class SpineExport(object):
 
     def __init__(self, parent=None):
-        self.directory = None
         self.msgBox = None
         self.fileFormat = 'png'
         self.bonePattern = re.compile("\(bone\)|\[bone\]", re.IGNORECASE)
@@ -26,20 +25,10 @@ class SpineExport(object):
         self.slotPattern = re.compile("\(slot\)|\[slot\]", re.IGNORECASE)
         self.skinPattern = re.compile("\(skin\)|\[skin\]", re.IGNORECASE)
 
-    def exportDocument(self, document):
+    def exportDocument(self, document, directory):
         if document is not None:
-            if not self.directory:
-                self.directory = os.path.dirname(document.fileName()) if document.fileName() else os.path.expanduser("~")
-
-            self.directory = QFileDialog.getExistingDirectory(None, "Select a folder to export Spine assets to",
-                                                              self.directory, QFileDialog.ShowDirsOnly)
-
-            if not self.directory:
-                self._alert("Directory doesn't exist; canceling export")
-                return
-
             self.json = {
-                "skeleton": {"images": self.directory},
+                "skeleton": {"images": directory},
                 "bones": [{"name": "root"}],
                 "slots": [],
                 "skins": {"default": {}},
@@ -51,11 +40,10 @@ class SpineExport(object):
 
             Krita.instance().setBatchmode(True)
             self.document = document
-            self._export(document.rootNode(), self.directory)
+            self._export(document.rootNode(), directory)
             Krita.instance().setBatchmode(False)
-            with open('{0}/{1}'.format(self.directory, 'spine.json'), 'w') as outfile:
+            with open('{0}/{1}'.format(directory, 'spine.json'), 'w') as outfile:
                 json.dump(self.json, outfile, indent=2)
-            self._alert("Spine export successful")
         else:
             self._alert("Please select a Document")
 
