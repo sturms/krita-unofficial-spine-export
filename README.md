@@ -10,9 +10,9 @@ Restart Krita and make sure the plugin is enabled, which means ``Settings > Conf
 
 ## How to use
 
-This plugin is inspired by the official [Photoshop plugin](https://github.com/EsotericSoftware/spine-scripts/tree/master/photoshop).
+This plugin is inspired by the official [Photoshop plugin](https://github.com/EsotericSoftware/spine-scripts/tree/master/photoshop), and the Krita built-in Document Tools plugin. 
 
-It works nearly the same but not all the features are implemented. You can find the script under ``Tools > Scripts > Export to Spine``. Select a folder and all your images will be exported into it as well as ``spine.json``
+You can find the script under ``Tools > Scripts > Export to Spine``. Select a folder and all your images will be exported into it as well as ``spine.json``
 
 Supported in Group Layers:
 * (Bone)
@@ -20,9 +20,10 @@ Supported in Group Layers:
 * (Merge)
 * (Ignore)
 
+Various operations such as scaling, resizing and rotating can be applied before export, these are not applied to the original document. 
+
 Notes:
 * Skins and subfolders are **not** supported
-* No configuration options
 * Images will be in ``png`` format
 * Both () and [] can be used
 * Invisible layers are ignored
