@@ -17,7 +17,7 @@ from . import SpineExport
 
 from PyQt5.QtCore import Qt, pyqtSignal, QObject
 from PyQt5.QtWidgets import (QFormLayout, QListWidget, QAbstractItemView, QLineEdit, QFileDialog,
-                             QDialogButtonBox, QVBoxLayout, QFrame, QTabWidget,
+                             QDialogButtonBox, QVBoxLayout, QFrame, QTabWidget, QSpinBox,
                              QPushButton, QAbstractScrollArea, QMessageBox, QHBoxLayout)
 import os
 import krita
@@ -41,6 +41,9 @@ class UIDocumentTools(object):
         self.directorySelectorLayout = QHBoxLayout()
         self.directoryTextField = QLineEdit()
         self.directoryDialogButton = QPushButton(i18n("..."))
+        # Bone length
+        self.boneLengthField = QSpinBox()
+        self.boneLengthField.setRange(0, 100)
 
         self.kritaInstance = krita.Krita.instance()
         self.documentsList = []
@@ -61,11 +64,12 @@ class UIDocumentTools(object):
 
         self.documentLayout.addWidget(self.widgetDocuments)
         self.documentLayout.addWidget(self.refreshButton)
-        self.directorySelectorLayout.addWidget( self.directoryTextField)
+        self.directorySelectorLayout.addWidget(self.directoryTextField)
         self.directorySelectorLayout.addWidget(self.directoryDialogButton)
 
         self.formLayout.addRow(i18n("Documents:"), self.documentLayout)
         self.formLayout.addRow(i18n("Output Directory:"), self.directorySelectorLayout)
+        self.formLayout.addRow(i18n("Bone Length:"), self.boneLengthField )
         self.formLayout.addRow(self.tabTools)
 
         self.line = QFrame()
@@ -125,7 +129,7 @@ class UIDocumentTools(object):
                 cloneDoc = document.clone()
                 widget.adjust(cloneDoc)
                 # Save the json from the clone
-                self.spineExport.exportDocument(cloneDoc, self.directoryTextField.text())
+                self.spineExport.exportDocument(cloneDoc, self.directoryTextField.text(), self.boneLengthField.value())
                 # Clone no longer needed
                 cloneDoc.close()
 

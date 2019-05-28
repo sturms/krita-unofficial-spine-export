@@ -26,7 +26,7 @@ class SpineExport(object):
         self.slotPattern = re.compile("\(slot\)|\[slot\]", re.IGNORECASE)
         self.skinPattern = re.compile("\(skin\)|\[skin\]", re.IGNORECASE)
 
-    def exportDocument(self, document, directory):
+    def exportDocument(self, document, directory, boneLength):
         if document is not None:
             self.json = {
                 "skeleton": {"images": directory},
@@ -38,6 +38,8 @@ class SpineExport(object):
             self.spineBones = self.json['bones']
             self.spineSlots = self.json['slots']
             self.spineSkins = self.json['skins']['default']
+            self.boneLength = boneLength
+            self.boneRotation = 90
 
             if document.guidesVisible():
                 xOrigin = document.horizontalGuides()[0]
@@ -93,6 +95,8 @@ class SpineExport(object):
                         self.spineBones.append({
                             'name': newBone,
                             'parent': bone,
+                            'length': self.boneLength,
+                            'rotation': self.boneRotation,
                             'x': newX,
                             'y': newY
                         })
@@ -142,7 +146,7 @@ class SpineExport(object):
             self.spineSkins[slotName][name] = {
                 'x': rect.left() + rect.width() / 2 - xOffset,
                 'y': (- rect.bottom() + rect.height() / 2) - yOffset,
-                'rotation': 0,
+                'rotation': -self.boneRotation,
                 'width': rect.width(),
                 'height': rect.height(),
             }
