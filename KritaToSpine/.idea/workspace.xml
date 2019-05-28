@@ -34,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/uidocumenttools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="142" column="51" selection-start-line="142" selection-start-column="51" selection-end-line="142" selection-end-column="51" />
+            <state relative-caret-position="858">
+              <caret line="137" column="12" selection-start-line="137" selection-start-column="12" selection-end-line="137" selection-end-column="12" />
               <folding>
                 <element signature="e#543#576#0" expanded="true" />
               </folding>
@@ -259,12 +259,12 @@
       <workItem from="1558796490666" duration="2582000" />
       <workItem from="1558800492039" duration="1496000" />
       <workItem from="1558805376057" duration="25952000" />
-      <workItem from="1558971084918" duration="12490000" />
+      <workItem from="1558971084918" duration="12702000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51100000" />
+    <option name="totallyTimeSpent" value="51312000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="625" y="-6" width="1778" height="1392" extended-state="0" />
@@ -401,8 +401,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/uidocumenttools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="142" column="51" selection-start-line="142" selection-start-column="51" selection-end-line="142" selection-end-column="51" />
+        <state relative-caret-position="858">
+          <caret line="137" column="12" selection-start-line="137" selection-start-column="12" selection-end-line="137" selection-end-column="12" />
           <folding>
             <element signature="e#543#576#0" expanded="true" />
           </folding>

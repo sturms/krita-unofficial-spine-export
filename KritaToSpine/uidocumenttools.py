@@ -123,8 +123,6 @@ class UIDocumentTools(object):
     def confirmButton(self):
         selectedDocuments = self._selectedDocuments()
 
-        self.msgBox = QMessageBox(self.mainDialog)
-
         if selectedDocuments:
             # TODO have this loop through the tabs and apply all of the items
             widget = self.tabTools.currentWidget()
@@ -136,13 +134,10 @@ class UIDocumentTools(object):
                 # Clone no longer needed
                 cloneDoc.close()
 
-            #self.msgBox.setText(i18n("The selected document has been exported."))
             self.outputField.setText(i18n("The selected document has been exported."))
-
+            
         else:
             self.outputField.setText(i18n("Please select at least one document."))
-
-        #self.msgBox.exec_()
 
     def _selectDir(self):
         doc = self._selectedDocuments()
