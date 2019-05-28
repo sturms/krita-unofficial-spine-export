@@ -31,6 +31,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/uidocumenttools.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="825">
+              <caret line="142" column="51" selection-start-line="142" selection-start-column="51" selection-end-line="142" selection-end-column="51" />
+              <folding>
+                <element signature="e#543#576#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/KritaToSpine.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -49,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SpineExport.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="894">
-              <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+            <state relative-caret-position="-297">
+              <caret lean-forward="true" />
               <folding>
                 <element signature="e#1#10#0" expanded="true" />
               </folding>
@@ -97,18 +109,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uidocumenttools.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="564">
-              <caret line="131" column="41" selection-start-line="131" selection-start-column="41" selection-end-line="131" selection-end-column="41" />
-              <folding>
-                <element signature="e#543#576#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -142,8 +142,8 @@
         <option value="$PROJECT_DIR$/tools/canvassizetool/canvassizetool.py" />
         <option value="$PROJECT_DIR$/tools/__init__.py" />
         <option value="$PROJECT_DIR$/tools/scaletool/scaletool.py" />
-        <option value="$PROJECT_DIR$/uidocumenttools.py" />
         <option value="$PROJECT_DIR$/SpineExport.py" />
+        <option value="$PROJECT_DIR$/uidocumenttools.py" />
       </list>
     </option>
   </component>
@@ -259,12 +259,12 @@
       <workItem from="1558796490666" duration="2582000" />
       <workItem from="1558800492039" duration="1496000" />
       <workItem from="1558805376057" duration="25952000" />
-      <workItem from="1558971084918" duration="11399000" />
+      <workItem from="1558971084918" duration="12490000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50009000" />
+    <option name="totallyTimeSpent" value="51100000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="625" y="-6" width="1778" height="1392" extended-state="0" />
@@ -382,16 +382,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uidocumenttools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="131" column="41" selection-start-line="131" selection-start-column="41" selection-end-line="131" selection-end-column="41" />
-          <folding>
-            <element signature="e#543#576#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/documenttoolsdialog.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -401,10 +391,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SpineExport.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="894">
-          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+        <state relative-caret-position="-297">
+          <caret lean-forward="true" />
           <folding>
             <element signature="e#1#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uidocumenttools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="142" column="51" selection-start-line="142" selection-start-column="51" selection-end-line="142" selection-end-column="51" />
+          <folding>
+            <element signature="e#543#576#0" expanded="true" />
           </folding>
         </state>
       </provider>

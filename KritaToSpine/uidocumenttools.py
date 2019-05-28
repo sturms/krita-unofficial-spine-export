@@ -16,7 +16,7 @@ from . import documenttoolsdialog
 from . import SpineExport
 
 from PyQt5.QtCore import Qt, pyqtSignal, QObject
-from PyQt5.QtWidgets import (QFormLayout, QListWidget, QAbstractItemView, QLineEdit, QFileDialog,
+from PyQt5.QtWidgets import (QFormLayout, QListWidget, QAbstractItemView, QLineEdit, QFileDialog, QLabel,
                              QDialogButtonBox, QVBoxLayout, QFrame, QTabWidget, QSpinBox,
                              QPushButton, QAbstractScrollArea, QMessageBox, QHBoxLayout)
 import os
@@ -37,6 +37,8 @@ class UIDocumentTools(object):
         self.tabTools = QTabWidget()
         self.buttonBox = QDialogButtonBox(
             QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        self.outputField = QLabel()
+
         # Output directory
         self.directorySelectorLayout = QHBoxLayout()
         self.directoryTextField = QLineEdit()
@@ -78,6 +80,7 @@ class UIDocumentTools(object):
 
         self.mainLayout.addLayout(self.formLayout)
         self.mainLayout.addWidget(self.line)
+        self.mainLayout.addWidget(self.outputField)
         self.mainLayout.addWidget(self.buttonBox)
 
         self.mainDialog.resize(500, 300)
@@ -133,10 +136,13 @@ class UIDocumentTools(object):
                 # Clone no longer needed
                 cloneDoc.close()
 
-            self.msgBox.setText(i18n("The selected document has been exported."))
+            #self.msgBox.setText(i18n("The selected document has been exported."))
+            self.outputField.setText(i18n("The selected document has been exported."))
+
         else:
-            self.msgBox.setText(i18n("Select at least one document."))
-        self.msgBox.exec_()
+            self.outputField.setText(i18n("Please select at least one document."))
+
+        #self.msgBox.exec_()
 
     def _selectDir(self):
         doc = self._selectedDocuments()
