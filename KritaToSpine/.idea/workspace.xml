@@ -31,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uidocumenttools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="858">
-              <caret line="137" column="12" selection-start-line="137" selection-start-column="12" selection-end-line="137" selection-end-column="12" />
+            <state relative-caret-position="-146">
+              <caret line="124" selection-start-line="124" selection-end-line="124" />
               <folding>
                 <element signature="e#543#576#0" expanded="true" />
               </folding>
@@ -46,7 +46,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/KritaToSpine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
+            <state relative-caret-position="-16">
               <caret line="4" column="70" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
             </state>
           </provider>
@@ -61,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SpineExport.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-297">
-              <caret lean-forward="true" />
+            <state relative-caret-position="663">
+              <caret line="100" column="38" lean-forward="true" selection-start-line="100" selection-start-column="38" selection-end-line="100" selection-end-column="38" />
               <folding>
                 <element signature="e#1#10#0" expanded="true" />
               </folding>
@@ -129,6 +129,7 @@
       <find>document tools</find>
       <find>_export</find>
       <find>spinbox</find>
+      <find>os</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,14 +143,14 @@
         <option value="$PROJECT_DIR$/tools/canvassizetool/canvassizetool.py" />
         <option value="$PROJECT_DIR$/tools/__init__.py" />
         <option value="$PROJECT_DIR$/tools/scaletool/scaletool.py" />
-        <option value="$PROJECT_DIR$/SpineExport.py" />
         <option value="$PROJECT_DIR$/uidocumenttools.py" />
+        <option value="$PROJECT_DIR$/SpineExport.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="625" />
-    <option name="y" value="-6" />
+    <option name="x" value="1258" />
+    <option name="y" value="32" />
     <option name="width" value="1778" />
     <option name="height" value="1392" />
   </component>
@@ -259,15 +260,15 @@
       <workItem from="1558796490666" duration="2582000" />
       <workItem from="1558800492039" duration="1496000" />
       <workItem from="1558805376057" duration="25952000" />
-      <workItem from="1558971084918" duration="12702000" />
+      <workItem from="1558971084918" duration="19614000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51312000" />
+    <option name="totallyTimeSpent" value="58224000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="625" y="-6" width="1778" height="1392" extended-state="0" />
+    <frame x="1258" y="32" width="1778" height="1392" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15366705" />
@@ -276,7 +277,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3293556" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.24184567" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.24184567" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -375,13 +376,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/KritaToSpine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="4" column="70" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/documenttoolsdialog.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -389,22 +383,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SpineExport.py">
+    <entry file="file://$PROJECT_DIR$/uidocumenttools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-297">
-          <caret lean-forward="true" />
+        <state relative-caret-position="-146">
+          <caret line="124" selection-start-line="124" selection-end-line="124" />
           <folding>
-            <element signature="e#1#10#0" expanded="true" />
+            <element signature="e#543#576#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uidocumenttools.py">
+    <entry file="file://$PROJECT_DIR$/KritaToSpine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="137" column="12" selection-start-line="137" selection-start-column="12" selection-end-line="137" selection-end-column="12" />
+        <state relative-caret-position="-16">
+          <caret line="4" column="70" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SpineExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="100" column="38" lean-forward="true" selection-start-line="100" selection-start-column="38" selection-end-line="100" selection-end-column="38" />
           <folding>
-            <element signature="e#543#576#0" expanded="true" />
+            <element signature="e#1#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

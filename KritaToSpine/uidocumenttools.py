@@ -89,6 +89,9 @@ class UIDocumentTools(object):
         self.mainDialog.show()
         self.mainDialog.activateWindow()
 
+        userDefaults = os.path.expanduser("~/.kritatospine")
+
+
     def loadTools(self):
         modulePath = 'KritaToSpine.tools'
         toolsModule = importlib.import_module(modulePath)
@@ -118,9 +121,11 @@ class UIDocumentTools(object):
             self.widgetDocuments.addItem(document.fileName())
 
     def refreshButtonClicked(self):
+        self.outputField.clear()
         self.loadDocuments()
 
     def confirmButton(self):
+        self.outputField.setText(i18n("Exporting ..."))
         selectedDocuments = self._selectedDocuments()
 
         if selectedDocuments:
@@ -135,7 +140,7 @@ class UIDocumentTools(object):
                 cloneDoc.close()
 
             self.outputField.setText(i18n("The selected document has been exported."))
-            
+
         else:
             self.outputField.setText(i18n("Please select at least one document."))
 
@@ -156,6 +161,7 @@ class UIDocumentTools(object):
         widget = self.tabTools.currentWidget()
         # Tell the widget to update itself to the current settings
         widget.updateFields(doc[0])
+        self.outputField.clear()
 
 
     def _selectedDocuments(self):

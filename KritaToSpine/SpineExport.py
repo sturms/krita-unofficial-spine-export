@@ -39,7 +39,8 @@ class SpineExport(object):
             self.spineSlots = self.json['slots']
             self.spineSkins = self.json['skins']['default']
             self.boneLength = boneLength
-            self.boneRotation = 90
+            self.skinsCount = 1 # default, incremented with new skins
+            self.boneRotation = 0
 
             if document.guidesVisible():
                 xOrigin = document.horizontalGuides()[0]
@@ -116,8 +117,9 @@ class SpineExport(object):
                     ## Found a skin
                     if self.skinPattern.search(child.name()):
                         new_skin_name = self.skinPattern.sub('', child.name()).strip()
-                        new_skin = "" #  "#'\t{ "name": ' + self.quote(new_skin_name) + ', "bone": '# + self.quote(slot.bone ? slot.bone.name : "root");
-                        self.spineDefaultSkins.append(new_skin)
+                        new_skin = "#'\t{ "name": ' + self.quote(new_skin_name) + ', "bone": '# + self.quote(slot.bone ? slot.bone.name : "root");
+                        self.spineSkins.append(new_skin)
+                        self.skinsCount = self.skinsCount + 1
 
                     self._export(child, directory, newBone, newX, newY, newSlot)
                     continue
