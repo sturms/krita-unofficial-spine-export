@@ -12,6 +12,7 @@
 
 # https://creativecommons.org/publicdomain/zero/1.0/legalcode
 
+import krita
 from . import documenttoolsdialog
 from . import SpineExport
 

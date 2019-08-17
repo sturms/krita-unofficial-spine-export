@@ -1,6 +1,7 @@
 
 import os
 import re
+import krita
 
 from krita import (Krita, Extension)
 
@@ -117,7 +118,9 @@ class SpineExport(object):
                     ## Found a skin
                     if self.skinPattern.search(child.name()):
                         new_skin_name = self.skinPattern.sub('', child.name()).strip()
-                        new_skin = "#'\t{ "name": ' + self.quote(new_skin_name) + ', "bone": '# + self.quote(slot.bone ? slot.bone.name : "root");
+                        #problem
+                        #new_skin = "#'\t{ "name": ' + self.quote(new_skin_name) + ', "bone": '# + self.quote(slot.bone ? slot.bone.name : "root");
+                        new_skin = "FIXSKIN"
                         self.spineSkins.append(new_skin)
                         self.skinsCount = self.skinsCount + 1
 
@@ -126,7 +129,8 @@ class SpineExport(object):
 
             name = self.mergePattern.sub('', child.name()).strip()
             layer_file_name = '{0}/{1}.{2}'.format(directory, name, self.fileFormat)
-            child.save(layer_file_name, 96, 96)
+            ## Note there is an optional bounds setting here
+            child.save(layer_file_name, 96, 96, krita.InfoObject()) 
 
             newSlot = slot
 
