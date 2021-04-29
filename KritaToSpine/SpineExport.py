@@ -3,6 +3,7 @@ import os
 import re
 
 from krita import (Krita, Extension)
+from krita import InfoObject
 
 import os
 import json
@@ -110,7 +111,7 @@ class SpineExport(object):
 
             name = self.mergePattern.sub('', child.name()).strip()
             layer_file_name = '{0}/{1}.{2}'.format(directory, name, self.fileFormat)
-            child.save(layer_file_name, 96, 96)
+            child.save(layer_file_name, 96, 96, InfoObject())
 
             newSlot = slot
 
